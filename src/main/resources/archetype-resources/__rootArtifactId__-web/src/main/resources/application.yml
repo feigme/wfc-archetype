@@ -1,0 +1,72 @@
+#######################################################
+# 应用程序相关配置
+#######################################################
+spring:
+  application:
+    name: spring-boot-demo
+  banner:
+      charset: UTF-8
+      location: classpath:banner.txt
+
+#######################################################
+# Tomcat相关配置
+#######################################################
+server:
+  servlet:
+    context-path: /api    # 项目访问路径
+  tomcat:
+    max-threads: 1000     # tomcat线程池大小设置
+    min-spare-threads: 30 # tomcat初始化线程数量
+    uri-encoding: UTF-8   # tomcat编码
+
+#######################################################
+# mybatis-plus配置
+#######################################################
+mybatis-plus:
+  check-config-location: true             # 检查路径配置
+  configuration:
+    map-underscore-to-camel-case: true    # 下换线自动转驼峰
+  global-config:
+    db-config:
+      field-strategy: not_empty
+      id-type: id_worker                  # 主键生成策略, 雪花算法
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+
+#######################################################
+# 数据库连接池
+#######################################################
+datasource:
+  druid:
+    filter:
+      slf4j:
+        enabled: true
+      stat:
+        log-slow-sql: true
+        merge-sql: true
+        slow-sql-millis: 3000  # SQL慢查询时间，超过3秒打印ERROR日志
+      wall:
+        config:
+          delete-allow: true
+          drop-table-allow: false
+        enabled: true
+    filters: stat,wall,slf4j
+    initial-size: 10
+    max-active: 100
+    max-pool-prepared-statement-per-connection-size: 20
+    max-wait: 60000
+    min-evictable-idle-time-millis: 300000
+    min-idle: 10
+    pool-prepared-statements: true
+    stat-view-servlet:
+      enabled: true
+      login-password: druid1234
+      login-username: druid
+      url-pattern: /druid/*
+    test-on-borrow: false  # 借出连接时不要测试，否则很影响性能
+    test-on-return: false
+    test-while-idle: true  # 指明连接是否被空闲连接回收器(如果有)进行检验.如果检测失败,则连接将被从池中去除
+    time-between-eviction-runs-millis: 60000  # 每60秒运行一次空闲连接回收器
+    validation-query: SELECT 1 FROM DUAL
+  type: com.alibaba.druid.pool.DruidDataSource
