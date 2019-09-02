@@ -1,6 +1,7 @@
 package ${package}.${rootArtifactId};
 
 import ${package}.${rootArtifactId}.config.MybatisConfig;
+import ${package}.${rootArtifactId}.config.DataSourceConfig;
 import ${package}.${rootArtifactId}.demo.entity.User;
 import ${package}.${rootArtifactId}.demo.mapper.UserMapper;
 import org.junit.Assert;
@@ -20,7 +21,7 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @EnableAutoConfiguration
-@SpringBootTest(classes = MybatisConfig.class)
+@SpringBootTest(classes = { MybatisConfig.class, DataSourceConfig.class })
 @Transactional
 public class MybatisPlusTest {
 
