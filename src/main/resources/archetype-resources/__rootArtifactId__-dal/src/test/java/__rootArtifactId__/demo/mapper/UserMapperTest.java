@@ -1,4 +1,4 @@
-package ${package}.${rootArtifactId};
+package ${package}.${rootArtifactId}.demo.mapper;
 
 import ${package}.${rootArtifactId}.config.MybatisConfig;
 import ${package}.${rootArtifactId}.config.DataSourceConfig;
@@ -23,7 +23,7 @@ import java.util.List;
 @EnableAutoConfiguration
 @SpringBootTest(classes = { MybatisConfig.class, DataSourceConfig.class })
 @Transactional
-public class MybatisPlusTest {
+public class UserMapperTest {
 
     @Resource
     private UserMapper userMapper;

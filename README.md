@@ -9,9 +9,10 @@
 > 数据连接层
 
 - 集成: mybatis, mybatis-plus, druid
-- 创建项目生产: 子工程demo, 测试用例demo
+- 生成: 子工程demo, 测试用例demo
 
 ### web
 > web工程, 主要提供rest接口
 
 - 集成: springMVC, freemarker, Swagger2
+- 生成: springMVC单测demo
