@@ -1,12 +1,11 @@
 ###  开发环境  ###
 
-# Tomcat相关配置
 server:
-  port: 8888
+  port: 8080
 
 spring:
   datasource:
     url: jdbc:h2:mem:test
-      username: root
-      password: test
+    username: root
+    password: test
 

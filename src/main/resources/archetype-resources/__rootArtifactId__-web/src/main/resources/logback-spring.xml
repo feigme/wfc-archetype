@@ -116,13 +116,13 @@
 
     <!-- SpringBoot 不同环境的不同配置 -->
     <springProfile name="dev">
-        <root level="DEBUG">
+        <root level="INFO">
             <appender-ref ref="STDOUT"/>
         </root>
     </springProfile>
 
-    <springProfile name="master">
-        <root level="DEBUG">
+    <springProfile name="daily">
+        <root level="INFO">
             <appender-ref ref="PROJECT"/>
             <appender-ref ref="ERROR"/>
         </root>

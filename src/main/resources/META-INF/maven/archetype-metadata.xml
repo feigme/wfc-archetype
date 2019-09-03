@@ -38,13 +38,13 @@
                         <include>**/*.*</include>
                     </includes>
                 </fileSet>
-                <fileSet encoding="UTF-8">
+                <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/main/resources</directory>
                     <includes>
                         <include>**/*.*</include>
                     </includes>
                 </fileSet>
-                <fileSet encoding="UTF-8">
+                <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/test/resources</directory>
                     <includes>
                         <include>**/*.*</include>
@@ -72,7 +72,7 @@
                         <include>**/*.*</include>
                     </includes>
                 </fileSet>
-                <fileSet encoding="UTF-8">
+                <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/test/resources</directory>
                     <includes>
                         <include>**/*.*</include>
@@ -101,7 +101,7 @@
                         <include>mapper</include>
                     </includes>
                 </fileSet>
-                <fileSet encoding="UTF-8">
+                <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/test/resources</directory>
                     <includes>
                         <include>**/*.*</include>
@@ -129,7 +129,7 @@
                         <include>**/*.*</include>
                     </includes>
                 </fileSet>
-                <fileSet encoding="UTF-8">
+                <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/test/resources</directory>
                     <includes>
                         <include>**/*.*</include>

@@ -7,6 +7,9 @@ spring:
   banner:
     charset: UTF-8
     location: classpath:banner.txt
+  profiles:
+    active: @profileActive@
+
 
 #######################################################
 # Tomcat相关配置
@@ -18,6 +21,7 @@ server:
     max-threads: 1000     # tomcat线程池大小设置
     min-spare-threads: 30 # tomcat初始化线程数量
     uri-encoding: UTF-8   # tomcat编码
+
 
 #######################################################
 # mybatis-plus配置
@@ -33,6 +37,7 @@ mybatis-plus:
       logic-delete-value: 0
       logic-not-delete-value: 1
   mapper-locations: classpath*:mapper/**/*Mapper.xml
+
 
 #######################################################
 # 数据库连接池
@@ -70,3 +75,15 @@ datasource:
     time-between-eviction-runs-millis: 60000  # 每60秒运行一次空闲连接回收器
     validation-query: SELECT 1 FROM DUAL
   type: com.alibaba.druid.pool.DruidDataSource
+
+
+#######################################################
+# swagger2配置
+#######################################################
+swagger:
+  base:
+    package: ${package}.${rootArtifactId}
+  description: '-'
+  title: spring-boot-demo
+  url: ''
+  version: 1.0
