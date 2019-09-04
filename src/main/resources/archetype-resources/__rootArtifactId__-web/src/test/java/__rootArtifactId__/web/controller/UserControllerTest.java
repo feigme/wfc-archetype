@@ -1,8 +1,10 @@
 package ${package}.${rootArtifactId}.web.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import ${package}.${rootArtifactId}.BootApplication;
 import ${package}.${rootArtifactId}.demo.entity.User;
+import ${package}.${rootArtifactId}.web.RestResult;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,36 +31,32 @@ public class UserControllerTest {
     private MockMvc mvc;
 
     /**
-     *
      * get
      */
     @Test
     public void getTest() throws Exception {
-        //准备请求url  不用带ip、端口、项目名称等 直接写接口的映射地址就可以了
+        // 准备请求url 不用带ip、端口、项目名称等 直接写接口的映射地址就可以了
         String url = "/user/1";
 
-        /* 构建request 发送请求GET请求
-         * MockMvcRequestBuilders 中有很多 请求方式。像get、post、put、delete等等
+        /*
+         * 构建request 发送请求GET请求 MockMvcRequestBuilders 中有很多 请求方式。像get、post、put、delete等等
          */
-        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(url)
-                .accept(MediaType.APPLICATION_JSON)) // 断言返回结果是json
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(url).accept(MediaType.APPLICATION_JSON)) // 断言返回结果是json
                 .andReturn();// 得到返回结果
 
         MockHttpServletResponse response = mvcResult.getResponse();
-        //拿到请求返回码
+        // 拿到请求返回码
         int status = response.getStatus();
-        //拿到结果
+        // 拿到结果
         String contentAsString = response.getContentAsString();
 
         System.out.printf(contentAsString);
         Assert.assertEquals(200, status);
-        Assert.assertEquals("ok", contentAsString);
+        User user = JSON.parseObject(contentAsString, new TypeReference<RestResult<User>>() {}).getData();
+        Assert.assertEquals("Jone", user.getName());
     }
 
-
-
     /**
-     *
      * post
      */
     @Test
@@ -78,24 +76,24 @@ public class UserControllerTest {
                 .andReturn();// 得到返回结果
 
         MockHttpServletResponse response = mvcResult.getResponse();
-        //拿到请求返回码
+        // 拿到请求返回码
         int status = response.getStatus();
-        //拿到结果
+        // 拿到结果
         String contentAsString = response.getContentAsString();
 
         System.out.printf(contentAsString);
         Assert.assertEquals(200, status);
-        Assert.assertEquals("ok", contentAsString);
+        Integer n = JSON.parseObject(contentAsString, new TypeReference<RestResult<Integer>>() {}).getData();
+        Assert.assertEquals(Integer.valueOf(1), n);
     }
 
     /**
-     *
      * put
      */
     @Test
     public void putTest() throws Exception {
         // uri
-        String uri = "/user/1";
+        String uri = "/user/2";
 
         User user = new User();
         user.setName("test-a");
@@ -109,18 +107,18 @@ public class UserControllerTest {
                 .andReturn();// 得到返回结果
 
         MockHttpServletResponse response = mvcResult.getResponse();
-        //拿到请求返回码
+        // 拿到请求返回码
         int status = response.getStatus();
-        //拿到结果
+        // 拿到结果
         String contentAsString = response.getContentAsString();
 
         System.out.printf(contentAsString);
         Assert.assertEquals(200, status);
-        Assert.assertEquals("ok", contentAsString);
+        Integer n = JSON.parseObject(contentAsString, new TypeReference<RestResult<Integer>>() {}).getData();
+        Assert.assertEquals(Integer.valueOf(1), n);
     }
 
     /**
-     *
      * delete
      */
     @Test
@@ -128,20 +126,19 @@ public class UserControllerTest {
         // uri
         String uri = "/user/1";
 
-        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.delete(uri)
-                .accept(MediaType.APPLICATION_JSON)) // 断言返回结果是json
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.delete(uri).accept(MediaType.APPLICATION_JSON)) // 断言返回结果是json
                 .andReturn();// 得到返回结果
 
         MockHttpServletResponse response = mvcResult.getResponse();
-        //拿到请求返回码
+        // 拿到请求返回码
         int status = response.getStatus();
-        //拿到结果
+        // 拿到结果
         String contentAsString = response.getContentAsString();
 
         System.out.printf(contentAsString);
         Assert.assertEquals(200, status);
-        Assert.assertEquals("ok", contentAsString);
+        Integer n = JSON.parseObject(contentAsString, new TypeReference<RestResult<Integer>>() {}).getData();
+        Assert.assertEquals(Integer.valueOf(1), n);
     }
-
 
 }

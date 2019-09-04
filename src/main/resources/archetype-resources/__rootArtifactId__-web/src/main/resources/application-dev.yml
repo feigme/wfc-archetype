@@ -5,7 +5,10 @@ server:
 
 spring:
   datasource:
+    driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:test
+    schema: classpath:db/schema-h2.sql
+    data: classpath:db/data-h2.sql
     username: root
     password: test
 
