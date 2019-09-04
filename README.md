@@ -15,4 +15,5 @@
 > web工程, 主要提供rest接口
 
 - 集成: springMVC, freemarker, Swagger2
+- springMVC使用fastjson做json的序列化
 - 生成: springMVC单测demo
