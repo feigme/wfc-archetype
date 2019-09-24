@@ -17,3 +17,17 @@
 - 集成: springMVC, freemarker, Swagger2
 - springMVC使用fastjson做json的序列化
 - 生成: springMVC单测demo
+
+## 使用方法
+首先将archetype install到本地
+
+```sh
+git clone https://github.com/feigme/wfc-archetype.git
+
+cd wfc-archetype
+
+mvn install
+
+```
+
+使用idea, 将archetype添加进去
