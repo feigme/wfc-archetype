@@ -19,7 +19,7 @@
 - 生成: springMVC单测demo
 
 ## 使用方法
-首先将archetype install到本地
+1. 首先将archetype install到本地
 
 ```sh
 git clone https://github.com/feigme/wfc-archetype.git
@@ -30,5 +30,8 @@ mvn install
 
 ```
 
-使用idea, 将archetype添加进去
+2. 使用idea, 将archetype添加进去
+![](https://raw.githubusercontent.com/feigme/wfc-archetype/master/doc/201861CF.png)
 
+3. 然后选择archetype来创建项目
+![](https://raw.githubusercontent.com/feigme/wfc-archetype/master/doc/201861CG.png)
