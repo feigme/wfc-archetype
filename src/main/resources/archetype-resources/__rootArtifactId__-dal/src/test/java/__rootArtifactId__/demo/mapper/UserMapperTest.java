@@ -48,4 +48,11 @@ public class UserMapperTest {
         System.out.println("id_worker: " + user.getId());
         Assert.assertEquals(19, user.getId().toString().length());
     }
+
+    @Test
+    public void testXmlMapper() {
+        User user = userMapper.findUserByName("Tom");
+        Assert.assertNotNull(user);
+        Assert.assertEquals(Long.valueOf(3), user.getId());
+    }
 }

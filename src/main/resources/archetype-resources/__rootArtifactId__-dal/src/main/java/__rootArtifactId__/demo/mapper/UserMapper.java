@@ -9,4 +9,12 @@ import ${package}.${rootArtifactId}.demo.entity.User;
  */
 public interface UserMapper extends BaseMapper<User> {
 
+    /**
+     * 通过xml定义sql查询
+     *
+     * @param name
+     * @return
+     */
+    User findUserByName(String name);
+
 }
