@@ -34,14 +34,14 @@ public class UserControllerTest {
      * get
      */
     @Test
-    public void getTest() throws Exception {
+    public void testGet() throws Exception {
         // 准备请求url 不用带ip、端口、项目名称等 直接写接口的映射地址就可以了
         String url = "/user/1";
 
         /*
          * 构建request 发送请求GET请求 MockMvcRequestBuilders 中有很多 请求方式。像get、post、put、delete等等
          */
-        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(url).accept(MediaType.APPLICATION_JSON)) // 断言返回结果是json
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(url).accept(MediaType.APPLICATION_JSON))
                 .andReturn();// 得到返回结果
 
         MockHttpServletResponse response = mvcResult.getResponse();
@@ -52,7 +52,8 @@ public class UserControllerTest {
 
         System.out.printf(contentAsString);
         Assert.assertEquals(200, status);
-        User user = JSON.parseObject(contentAsString, new TypeReference<RestResult<User>>() {}).getData();
+        User user = JSON.parseObject(contentAsString, new TypeReference<RestResult<User>>() {
+        }).getData();
         Assert.assertEquals("Jone", user.getName());
     }
 
@@ -60,7 +61,7 @@ public class UserControllerTest {
      * post
      */
     @Test
-    public void postTest() throws Exception {
+    public void testPost() throws Exception {
         // uri
         String uri = "/user";
 
@@ -83,7 +84,8 @@ public class UserControllerTest {
 
         System.out.printf(contentAsString);
         Assert.assertEquals(200, status);
-        Integer n = JSON.parseObject(contentAsString, new TypeReference<RestResult<Integer>>() {}).getData();
+        Integer n = JSON.parseObject(contentAsString, new TypeReference<RestResult<Integer>>() {
+        }).getData();
         Assert.assertEquals(Integer.valueOf(1), n);
     }
 
@@ -91,7 +93,7 @@ public class UserControllerTest {
      * put
      */
     @Test
-    public void putTest() throws Exception {
+    public void testPut() throws Exception {
         // uri
         String uri = "/user/2";
 
@@ -114,7 +116,8 @@ public class UserControllerTest {
 
         System.out.printf(contentAsString);
         Assert.assertEquals(200, status);
-        Integer n = JSON.parseObject(contentAsString, new TypeReference<RestResult<Integer>>() {}).getData();
+        Integer n = JSON.parseObject(contentAsString, new TypeReference<RestResult<Integer>>() {
+        }).getData();
         Assert.assertEquals(Integer.valueOf(1), n);
     }
 
@@ -122,11 +125,11 @@ public class UserControllerTest {
      * delete
      */
     @Test
-    public void deleteTest() throws Exception {
+    public void testDelete() throws Exception {
         // uri
         String uri = "/user/1";
 
-        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.delete(uri).accept(MediaType.APPLICATION_JSON)) // 断言返回结果是json
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.delete(uri).accept(MediaType.APPLICATION_JSON))
                 .andReturn();// 得到返回结果
 
         MockHttpServletResponse response = mvcResult.getResponse();
@@ -137,8 +140,36 @@ public class UserControllerTest {
 
         System.out.printf(contentAsString);
         Assert.assertEquals(200, status);
-        Integer n = JSON.parseObject(contentAsString, new TypeReference<RestResult<Integer>>() {}).getData();
+        Integer n = JSON.parseObject(contentAsString, new TypeReference<RestResult<Integer>>() {
+        }).getData();
         Assert.assertEquals(Integer.valueOf(1), n);
+    }
+
+    /**
+     * get
+     */
+    @Test
+    public void testException() throws Exception {
+        // 准备请求url 不用带ip、端口、项目名称等 直接写接口的映射地址就可以了
+        String url = "/user/1xx";
+
+        /*
+         * 构建request 发送请求GET请求 MockMvcRequestBuilders 中有很多 请求方式。像get、post、put、delete等等
+         */
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(url).accept(MediaType.APPLICATION_JSON))
+                .andReturn();// 得到返回结果
+
+        MockHttpServletResponse response = mvcResult.getResponse();
+        // 拿到请求返回码
+        int status = response.getStatus();
+        // 拿到结果
+        String contentAsString = response.getContentAsString();
+
+        System.out.printf(contentAsString);
+        Assert.assertEquals(200, status);
+        int code = JSON.parseObject(contentAsString, new TypeReference<RestResult<String>>() {
+        }).getCode();
+        Assert.assertEquals(500, code);
     }
 
 }

@@ -6,10 +6,12 @@
 
     <parent>
         <groupId>${groupId}</groupId>
-        <artifactId>${rootArtifactId}</artifactId>
+        <artifactId>${rootArtifactId}-parent</artifactId>
         <version>${version}</version>
+        <relativePath>../${rootArtifactId}-parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>${artifactId}</artifactId>
+    <version>${version}</version>
 
 </project>

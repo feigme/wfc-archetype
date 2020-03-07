@@ -24,6 +24,9 @@
 
     <!--子模块-->
     <modules>
+
+        <module id="${rootArtifactId}-parent" name="${rootArtifactId}-parent" dir="__rootArtifactId__-parent"></module>
+
         <module id="${rootArtifactId}-web" name="${rootArtifactId}-web" dir="__rootArtifactId__-web">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">
@@ -52,6 +55,7 @@
                 </fileSet>
             </fileSets>
         </module>
+
         <module id="${rootArtifactId}-service" name="${rootArtifactId}-service" dir="__rootArtifactId__-service">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">
@@ -80,6 +84,7 @@
                 </fileSet>
             </fileSets>
         </module>
+
         <module id="${rootArtifactId}-dal" name="${rootArtifactId}-dal" dir="__rootArtifactId__-dal">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">
@@ -109,6 +114,7 @@
                 </fileSet>
             </fileSets>
         </module>
+
         <module id="${rootArtifactId}-api" name="${rootArtifactId}-api" dir="__rootArtifactId__-api">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">
@@ -137,5 +143,6 @@
                 </fileSet>
             </fileSets>
         </module>
+
     </modules>
 </archetype-descriptor>
