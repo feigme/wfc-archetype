@@ -1,4 +1,4 @@
-package ${package}.${rootArtifactId}.config;
+package ${package}.${rootArtifactId}.web.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

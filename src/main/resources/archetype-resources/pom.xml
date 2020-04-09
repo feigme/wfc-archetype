@@ -17,7 +17,8 @@
         <module>${rootArtifactId}-parent</module>
         <module>${rootArtifactId}-api</module>
         <module>${rootArtifactId}-dal</module>
-        <module>${rootArtifactId}-service</module>
+        <module>${rootArtifactId}-adapter</module>
+        <module>${rootArtifactId}-biz</module>
         <module>${rootArtifactId}-web</module>
     </modules>
 

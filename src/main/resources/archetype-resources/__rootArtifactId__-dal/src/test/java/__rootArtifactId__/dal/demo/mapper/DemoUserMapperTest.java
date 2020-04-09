@@ -1,9 +1,9 @@
-package ${package}.${rootArtifactId}.demo.mapper;
+package ${package}.${rootArtifactId}.dal.demo.mapper;
 
-import ${package}.${rootArtifactId}.config.MybatisConfig;
-import ${package}.${rootArtifactId}.config.DataSourceConfig;
-import ${package}.${rootArtifactId}.demo.entity.User;
-import ${package}.${rootArtifactId}.demo.mapper.UserMapper;
+import ${package}.${rootArtifactId}.dal.config.MybatisConfig;
+import ${package}.${rootArtifactId}.dal.config.DataSourceConfig;
+import ${package}.${rootArtifactId}.dal.demo.entity.DemoUser;
+import ${package}.${rootArtifactId}.dal.demo.mapper.DemoUserMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,26 +23,26 @@ import java.util.List;
 @EnableAutoConfiguration
 @SpringBootTest(classes = { MybatisConfig.class, DataSourceConfig.class })
 @Transactional
-public class UserMapperTest {
+public class DemoUserMapperTest {
 
     @Resource
-    private UserMapper userMapper;
+    private DemoUserMapper demoUserMapper;
 
     @Test
     public void testSelect() {
         System.out.println("----- selectAll method test ------");
-        List<User> userList = userMapper.selectList(null);
+        List<DemoUser> userList = demoUserMapper.selectList(null);
         Assert.assertEquals(5, userList.size());
         userList.forEach(System.out::println);
     }
 
     @Test
     public void testInsert() {
-        User user = new User();
+        DemoUser user = new DemoUser();
         user.setName("test-a");
         user.setAge(18);
         user.setEmail("testsa@wfc.com");
-        int n = userMapper.insert(user);
+        int n = demoUserMapper.insert(user);
         Assert.assertEquals(1, n);
         Assert.assertNotNull(user.getId());
         System.out.println("id_worker: " + user.getId());
@@ -51,7 +51,7 @@ public class UserMapperTest {
 
     @Test
     public void testXmlMapper() {
-        User user = userMapper.findUserByName("Tom");
+        DemoUser user = demoUserMapper.findUserByName("Tom");
         Assert.assertNotNull(user);
         Assert.assertEquals(Long.valueOf(3), user.getId());
     }

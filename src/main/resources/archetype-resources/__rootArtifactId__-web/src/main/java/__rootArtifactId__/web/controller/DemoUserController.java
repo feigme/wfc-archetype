@@ -1,7 +1,7 @@
 package ${package}.${rootArtifactId}.web.controller;
 
-import ${package}.${rootArtifactId}.demo.entity.User;
-import ${package}.${rootArtifactId}.demo.mapper.UserMapper;
+import ${package}.${rootArtifactId}.dal.demo.entity.DemoUser;
+import ${package}.${rootArtifactId}.dal.demo.mapper.DemoUserMapper;
 import ${package}.${rootArtifactId}.web.RestResult;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,34 +15,34 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class DemoUserController {
 
     @Autowired
-    private UserMapper userMapper;
+    private DemoUserMapper demoUserMapper;
 
     @ApiOperation(value = "获取用户信息", notes = "根据id获取用户信息")
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public Object getUser(@PathVariable("id") Long id) {
-        return RestResult.success(userMapper.selectById(id));
+        return RestResult.success(demoUserMapper.selectById(id));
     }
 
     @ApiOperation(value = "新增用户信息", notes = "用户-新增用户信息")
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Object addUser(HttpServletRequest request, @RequestBody User user) {
-        return RestResult.success(userMapper.insert(user));
+    public Object addUser(HttpServletRequest request, @RequestBody DemoUser user) {
+        return RestResult.success(demoUserMapper.insert(user));
     }
 
     @ApiOperation(value = "更新用户信息", notes = "用户-更新用户信息")
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-    public Object updateUser(@PathVariable("id") Long id, @RequestBody User user) {
+    public Object updateUser(@PathVariable("id") Long id, @RequestBody DemoUser user) {
         user.setId(id);
-        return RestResult.success(userMapper.updateById(user));
+        return RestResult.success(demoUserMapper.updateById(user));
     }
 
     @ApiOperation(value = "删除用户信息", notes = "用户-删除用户信息")
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     public Object deleteUser(@PathVariable("id") Long id) {
-        return RestResult.success(userMapper.deleteById(id));
+        return RestResult.success(demoUserMapper.deleteById(id));
     }
 
 }

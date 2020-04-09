@@ -1,4 +1,4 @@
-package ${package}.${rootArtifactId}.config;
+package ${package}.${rootArtifactId}.web.config;
 
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;

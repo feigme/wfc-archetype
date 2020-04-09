@@ -1,5 +1,6 @@
-package ${package}.${rootArtifactId}.demo.entity;
+package ${package}.${rootArtifactId}.dal.demo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
@@ -7,7 +8,8 @@ import lombok.Data;
  * @create by 2019-08-30 10:50
  */
 @Data
-public class User {
+@TableName("user")
+public class DemoUser {
     private Long id;
     private String name;
     private Integer age;

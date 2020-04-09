@@ -1,4 +1,4 @@
-package ${package}.${rootArtifactId}.config;
+package ${package}.${rootArtifactId}.dal.config;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;

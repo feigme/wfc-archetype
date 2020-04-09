@@ -1,4 +1,4 @@
-package ${package}.${rootArtifactId}.config;
+package ${package}.${rootArtifactId}.web.config;
 
 import ${package}.${rootArtifactId}.web.RestResult;
 import lombok.extern.slf4j.Slf4j;

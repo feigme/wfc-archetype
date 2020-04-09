@@ -3,7 +3,7 @@ package ${package}.${rootArtifactId}.web.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import ${package}.${rootArtifactId}.BootApplication;
-import ${package}.${rootArtifactId}.demo.entity.User;
+import ${package}.${rootArtifactId}.dal.demo.entity.DemoUser;
 import ${package}.${rootArtifactId}.web.RestResult;
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,7 +25,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BootApplication.class)
 @AutoConfigureMockMvc
-public class UserControllerTest {
+public class DemoUserControllerTest {
 
     @Autowired
     private MockMvc mvc;
@@ -52,7 +52,7 @@ public class UserControllerTest {
 
         System.out.printf(contentAsString);
         Assert.assertEquals(200, status);
-        User user = JSON.parseObject(contentAsString, new TypeReference<RestResult<User>>() {
+        DemoUser user = JSON.parseObject(contentAsString, new TypeReference<RestResult<DemoUser>>() {
         }).getData();
         Assert.assertEquals("Jone", user.getName());
     }
@@ -65,7 +65,7 @@ public class UserControllerTest {
         // uri
         String uri = "/user";
 
-        User user = new User();
+        DemoUser user = new DemoUser();
         user.setName("test-a");
         user.setAge(18);
         user.setEmail("testsa@wfc.com");
@@ -97,7 +97,7 @@ public class UserControllerTest {
         // uri
         String uri = "/user/2";
 
-        User user = new User();
+        DemoUser user = new DemoUser();
         user.setName("test-a");
         user.setAge(18);
         user.setEmail("testsa@wfc.com");

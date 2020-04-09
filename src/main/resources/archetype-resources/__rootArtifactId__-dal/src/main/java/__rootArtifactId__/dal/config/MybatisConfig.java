@@ -1,4 +1,4 @@
-package ${package}.${rootArtifactId}.config;
+package ${package}.${rootArtifactId}.dal.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @create by 2019-08-30 11:00
  */
 @Configuration
-@MapperScan("${package}.${rootArtifactId}.*.mapper")
+@MapperScan("${package}.${rootArtifactId}.dal.*.mapper")
 public class MybatisConfig {
 
     /**
