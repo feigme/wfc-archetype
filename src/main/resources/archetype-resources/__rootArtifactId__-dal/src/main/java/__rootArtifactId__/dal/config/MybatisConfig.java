@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @create by 2019-08-30 11:00
  */
 @Configuration
-@MapperScan("${package}.${rootArtifactId}.dal.*.mapper")
+@MapperScan("${package}.${rootArtifactId}.dal.**.mapper")
 public class MybatisConfig {
 
     /**
