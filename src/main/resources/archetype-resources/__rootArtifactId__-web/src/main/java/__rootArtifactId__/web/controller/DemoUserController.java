@@ -1,7 +1,7 @@
 package ${package}.${rootArtifactId}.web.controller;
 
-import ${package}.${rootArtifactId}.dal.demo.entity.DemoUser;
-import ${package}.${rootArtifactId}.dal.demo.mapper.DemoUserMapper;
+import ${package}.${rootArtifactId}.dal.entity.DemoUserDO;
+import ${package}.${rootArtifactId}.dal.mapper.DemoUserMapper;
 import ${package}.${rootArtifactId}.web.RestResult;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author 飞影
+ * @create by 2020-03-21 18:35
+ */
 @RestController
 @RequestMapping("/user")
 public class DemoUserController {
@@ -28,13 +32,13 @@ public class DemoUserController {
 
     @ApiOperation(value = "新增用户信息", notes = "用户-新增用户信息")
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Object addUser(HttpServletRequest request, @RequestBody DemoUser user) {
+    public Object addUser(HttpServletRequest request, @RequestBody DemoUserDO user) {
         return RestResult.success(demoUserMapper.insert(user));
     }
 
     @ApiOperation(value = "更新用户信息", notes = "用户-更新用户信息")
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-    public Object updateUser(@PathVariable("id") Long id, @RequestBody DemoUser user) {
+    public Object updateUser(@PathVariable("id") Long id, @RequestBody DemoUserDO user) {
         user.setId(id);
         return RestResult.success(demoUserMapper.updateById(user));
     }

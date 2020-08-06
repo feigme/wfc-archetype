@@ -3,7 +3,7 @@ package ${package}.${rootArtifactId}.web.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import ${package}.${rootArtifactId}.BootApplication;
-import ${package}.${rootArtifactId}.dal.demo.entity.DemoUser;
+import ${package}.${rootArtifactId}.dal.entity.DemoUserDO;
 import ${package}.${rootArtifactId}.web.RestResult;
 import org.junit.Assert;
 import org.junit.Test;
@@ -52,7 +52,7 @@ public class DemoUserControllerTest {
 
         System.out.printf(contentAsString);
         Assert.assertEquals(200, status);
-        DemoUser user = JSON.parseObject(contentAsString, new TypeReference<RestResult<DemoUser>>() {
+        DemoUserDO user = JSON.parseObject(contentAsString, new TypeReference<RestResult<DemoUserDO>>() {
         }).getData();
         Assert.assertEquals("Jone", user.getName());
     }
@@ -65,7 +65,7 @@ public class DemoUserControllerTest {
         // uri
         String uri = "/user";
 
-        DemoUser user = new DemoUser();
+        DemoUserDO user = new DemoUserDO();
         user.setName("test-a");
         user.setAge(18);
         user.setEmail("testsa@wfc.com");
@@ -97,7 +97,7 @@ public class DemoUserControllerTest {
         // uri
         String uri = "/user/2";
 
-        DemoUser user = new DemoUser();
+        DemoUserDO user = new DemoUserDO();
         user.setName("test-a");
         user.setAge(18);
         user.setEmail("testsa@wfc.com");

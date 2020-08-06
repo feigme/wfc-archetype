@@ -8,7 +8,21 @@ import java.util.Map;
  */
 public interface HttpAdapter {
 
+    /**
+     * post 请求
+     *
+     * @param url
+     * @param params
+     * @return
+     */
     String doPost(String url, Map<String, String> params);
 
+    /**
+     * get 请求
+     *
+     * @param url
+     * @param params
+     * @return
+     */
     String doGet(String url, Map<String, String> params);
 }

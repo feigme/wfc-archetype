@@ -19,6 +19,13 @@ public interface DemoUserMapper extends BaseMapper<DemoUserDO> {
      */
     DemoUserDO getUserByName(String name);
 
+    /**
+     * like查询
+     *
+     * @param page
+     * @param name
+     * @return
+     */
     IPage<DemoUserDO> selectLike(IPage<DemoUserDO> page, @Param("name") String name);
 
 }

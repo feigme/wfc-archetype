@@ -54,16 +54,6 @@ public class OkHttpAdapterImpl implements HttpAdapter {
 
         Request.Builder builder = new Request.Builder();
         // TODO header
-        String[] headers = null;
-        if (headers != null && headers.length > 0) {
-            if (headers.length % 2 == 0) {
-                for (int i = 0; i < headers.length; i = i + 2) {
-                    builder.addHeader(headers[i], headers[i + 1]);
-                }
-            } else {
-                log.warn("headers's length[{}] is error.", headers.length);
-            }
-        }
 
         Request request = builder.url(sb.toString()).build();
         log.info("get request, url: {}", sb.toString());
