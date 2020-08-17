@@ -1,7 +1,7 @@
-package ${package}.${rootArtifactId}.web.controller;
+package ${package}.${rootArtifactId}.web.demo.controller;
 
-import ${package}.${rootArtifactId}.dal.entity.DemoUserDO;
-import ${package}.${rootArtifactId}.dal.mapper.DemoUserMapper;
+import ${package}.${rootArtifactId}.dal.demo.entity.DemoUserDO;
+import ${package}.${rootArtifactId}.dal.demo.mapper.DemoUserMapper;
 import ${package}.${rootArtifactId}.web.RestResult;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

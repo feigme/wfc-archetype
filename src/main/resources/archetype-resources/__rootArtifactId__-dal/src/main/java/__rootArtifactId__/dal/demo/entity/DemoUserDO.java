@@ -1,4 +1,4 @@
-package ${package}.${rootArtifactId}.dal.entity;
+package ${package}.${rootArtifactId}.dal.demo.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;

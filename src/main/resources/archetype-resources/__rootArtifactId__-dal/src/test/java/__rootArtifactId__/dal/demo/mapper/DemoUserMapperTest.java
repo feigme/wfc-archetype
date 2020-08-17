@@ -1,10 +1,10 @@
-package ${package}.${rootArtifactId}.dal.mapper;
+package ${package}.${rootArtifactId}.dal.demo.mapper;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ${package}.${rootArtifactId}.dal.config.MybatisConfig;
 import ${package}.${rootArtifactId}.dal.config.DataSourceConfig;
-import ${package}.${rootArtifactId}.dal.entity.DemoUserDO;
+import ${package}.${rootArtifactId}.dal.demo.entity.DemoUserDO;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

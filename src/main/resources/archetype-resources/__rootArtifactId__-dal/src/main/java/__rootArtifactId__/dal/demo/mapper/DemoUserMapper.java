@@ -1,8 +1,8 @@
-package ${package}.${rootArtifactId}.dal.mapper;
+package ${package}.${rootArtifactId}.dal.demo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import ${package}.${rootArtifactId}.dal.entity.DemoUserDO;
+import ${package}.${rootArtifactId}.dal.demo.entity.DemoUserDO;
 import org.apache.ibatis.annotations.Param;
 
 /**

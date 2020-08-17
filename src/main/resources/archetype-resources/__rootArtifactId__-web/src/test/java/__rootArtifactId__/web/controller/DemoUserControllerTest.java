@@ -3,7 +3,7 @@ package ${package}.${rootArtifactId}.web.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import ${package}.${rootArtifactId}.BootApplication;
-import ${package}.${rootArtifactId}.dal.entity.DemoUserDO;
+import ${package}.${rootArtifactId}.dal.demo.entity.DemoUserDO;
 import ${package}.${rootArtifactId}.web.RestResult;
 import org.junit.Assert;
 import org.junit.Test;
